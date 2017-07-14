@@ -17,5 +17,12 @@ namespace Nunit.Test
 			return Misc.Fizzbuzz.FizzBuzz(Input);
 
 		}
+		
+		[TestCase(-1)]
+		public void testExceptions(int input)
+		{
+			Assert.Throws<ArgumentException>(() => Misc.Fizzbuzz.FizzBuzz(input));
+		}
+
 	}
 }
