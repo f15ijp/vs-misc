@@ -13,9 +13,7 @@ namespace Nunit.Test
 		[TestCase(15, ExpectedResult = "FizzBuzz")]
 		public string testCases(int Input)
 		{
-
 			return Misc.Fizzbuzz.FizzBuzz(Input);
-
 		}
 		
 		[TestCase(-1)]
