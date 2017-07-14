@@ -10,7 +10,6 @@ namespace MSTest.Test
 		public void TestNegativeNumberThrowsEx()
 		{
 			Exception expectedException = null;
-
 			try
 			{
 				Misc.Fizzbuzz.FizzBuzz(-1);
