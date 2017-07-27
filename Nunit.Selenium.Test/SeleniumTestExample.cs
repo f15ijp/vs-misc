@@ -48,13 +48,7 @@ namespace Nunit.Selenium.Test
 			finally
 			{
 
-				//Even if many windows were opened - close all of them
-				foreach (string windowHandle in driver.WindowHandles.ToList())
-				{
-					driver.SwitchTo().Window(windowHandle);
-					driver.Close();
-
-				}
+				driver.Quit();
 
 			}
 
