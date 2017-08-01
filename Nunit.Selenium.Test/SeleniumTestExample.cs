@@ -13,6 +13,25 @@ namespace Nunit.Selenium.Test
 	public class SeleniumTestExample
 	{
 
+		[OneTimeTearDown]
+		public void OneTimeTearDown()
+		{
+			if (driver != null)
+			{
+				//If the test did not pass, take a screenshot
+				if (TestContext.CurrentContext.Result.Outcome != NUnit.Framework.Interfaces.ResultState.Success )
+				{
+					string currentDirectory = System.Reflection.Assembly.GetExecutingAssembly().Location;
+					currentDirectory = currentDirectory.Substring(0, currentDirectory.LastIndexOf("\\")+1);
+					((ITakesScreenshot)driver).GetScreenshot().SaveAsFile($"{currentDirectory}Seleniumfailure.png", ScreenshotImageFormat.Png);
+				}
+				driver.Quit();
+			}
+
+		}
+
+		static RemoteWebDriver driver = null;
+
 		[Test()]
 		[Ignore("Don't run in CI")]
 
@@ -64,9 +83,6 @@ namespace Nunit.Selenium.Test
 				hubUrl = "http://localhost:4444/wd/hub";
 			}
 
-			RemoteWebDriver driver = null;
-			try
-			{
 				DesiredCapabilities browserCapabilites = DesiredCapabilities.InternetExplorer();
 				browserCapabilites.SetCapability("ignoreProtectedModeSettings", true);
 				browserCapabilites.SetCapability("ie.forceCreateProcessApi", true);
@@ -75,8 +91,7 @@ namespace Nunit.Selenium.Test
 				driver = new RemoteWebDriver(new Uri(hubUrl), browserCapabilites);
 
 				By locator = By.Id("useragent");
-
-
+				
 				driver.Url = "http://www.f15ijp.com/misc/ua.php";
 
 				WebDriverWait wait = new WebDriverWait(driver, new TimeSpan(0, 0, 30));
@@ -97,13 +112,6 @@ namespace Nunit.Selenium.Test
 				{
 					Assert.That(theElement.Text, Contains.Substring(driver.Capabilities.BrowserName).IgnoreCase);
 				}
-
-			}
-			finally
-			{
-
-				driver.Quit();
-			}
 
 
 		}
