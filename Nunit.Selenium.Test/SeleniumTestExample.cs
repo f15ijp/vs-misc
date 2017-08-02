@@ -5,6 +5,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Remote;
+using System.Collections.Generic;
 
 namespace Nunit.Selenium.Test
 {
@@ -74,8 +75,7 @@ namespace Nunit.Selenium.Test
 
 		}
 
-		[Test()]
-		public void seleniumGrid()
+		public RemoteWebDriver GetIEDriver()
 		{
 			string hubUrl = System.Configuration.ConfigurationManager.AppSettings["seleniumHub"];
 			if (string.IsNullOrEmpty(hubUrl))
@@ -83,12 +83,19 @@ namespace Nunit.Selenium.Test
 				hubUrl = "http://localhost:4444/wd/hub";
 			}
 
-				DesiredCapabilities browserCapabilites = DesiredCapabilities.InternetExplorer();
-				browserCapabilites.SetCapability("ignoreProtectedModeSettings", true);
-				browserCapabilites.SetCapability("ie.forceCreateProcessApi", true);
-				browserCapabilites.SetCapability("ie.browserCommandLineSwitches", "-private");
+			DesiredCapabilities browserCapabilites = DesiredCapabilities.InternetExplorer();
+			browserCapabilites.SetCapability("ignoreProtectedModeSettings", true);
+			browserCapabilites.SetCapability("ie.forceCreateProcessApi", true);
+			browserCapabilites.SetCapability("ie.browserCommandLineSwitches", "-private");
 
-				driver = new RemoteWebDriver(new Uri(hubUrl), browserCapabilites);
+			return new RemoteWebDriver(new Uri(hubUrl), browserCapabilites);
+		}
+
+		[Test()]
+		public void SeleniumGrid()
+		{			
+
+				driver = GetIEDriver();
 
 				By locator = By.Id("useragent");
 				
@@ -112,10 +119,8 @@ namespace Nunit.Selenium.Test
 				{
 					Assert.That(theElement.Text, Contains.Substring(driver.Capabilities.BrowserName).IgnoreCase);
 				}
-
-
+				
 		}
-
 
 	}
 }
