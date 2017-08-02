@@ -20,10 +20,10 @@ namespace Nunit.Selenium.Test
 			if (driver != null)
 			{
 				//If the test did not pass, take a screenshot
-				if (TestContext.CurrentContext.Result.Outcome != NUnit.Framework.Interfaces.ResultState.Success )
+				if (TestContext.CurrentContext.Result.Outcome != NUnit.Framework.Interfaces.ResultState.Success)
 				{
 					string currentDirectory = System.Reflection.Assembly.GetExecutingAssembly().Location;
-					currentDirectory = currentDirectory.Substring(0, currentDirectory.LastIndexOf("\\")+1);
+					currentDirectory = currentDirectory.Substring(0, currentDirectory.LastIndexOf("\\") + 1);
 					((ITakesScreenshot)driver).GetScreenshot().SaveAsFile($"{currentDirectory}Seleniumfailure.png", ScreenshotImageFormat.Png);
 				}
 				driver.Quit();
@@ -91,36 +91,41 @@ namespace Nunit.Selenium.Test
 			return new RemoteWebDriver(new Uri(hubUrl), browserCapabilites);
 		}
 
+		public void LoadPageAndWaitForElement(RemoteWebDriver driver, By locator)
+		{
+			driver.Url = "http://www.f15ijp.com/misc/ua.php";
+
+			WebDriverWait wait = new WebDriverWait(driver, new TimeSpan(0, 0, 30));
+			wait.Until(ExpectedConditions.ElementIsVisible(locator));
+		}
+
 		[Test()]
 		public void SeleniumGrid()
-		{			
+		{
 
-				driver = GetIEDriver();
+			driver = GetIEDriver();
 
-				By locator = By.Id("useragent");
-				
-				driver.Url = "http://www.f15ijp.com/misc/ua.php";
+			By locator = By.Id("useragent");
 
-				WebDriverWait wait = new WebDriverWait(driver, new TimeSpan(0, 0, 30));
-				wait.Until(ExpectedConditions.ElementIsVisible(locator));
+			LoadPageAndWaitForElement(driver, locator);
 
+			IWebElement theElement = driver.FindElement(locator);
 
-				IWebElement theElement = driver.FindElement(locator);
+			if (driver.Capabilities.BrowserName.Equals("internet explorer"))
+			{
+				Assert.That(theElement.Text, Contains.Substring("trident").IgnoreCase.Or.Contains("internet").IgnoreCase.And.Contains("explorer").IgnoreCase);
+			}
+			else if (driver.Capabilities.BrowserName.Equals("opera"))
+			{
+				Assert.That(theElement.Text, Contains.Substring("OPR/").IgnoreCase);
+			}
+			else
+			{
+				Assert.That(theElement.Text, Contains.Substring(driver.Capabilities.BrowserName).IgnoreCase);
+			}
 
-				if (driver.Capabilities.BrowserName.Equals("internet explorer"))
-				{
-					Assert.That(theElement.Text, Contains.Substring("trident").IgnoreCase.Or.Contains("internet").IgnoreCase.And.Contains("explorer").IgnoreCase);
-				}
-				else if (driver.Capabilities.BrowserName.Equals("opera"))
-				{
-					Assert.That(theElement.Text, Contains.Substring("OPR/").IgnoreCase);
-				}
-				else
-				{
-					Assert.That(theElement.Text, Contains.Substring(driver.Capabilities.BrowserName).IgnoreCase);
-				}
-				
 		}
+
 
 	}
 }
