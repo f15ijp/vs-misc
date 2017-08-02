@@ -14,28 +14,8 @@ namespace Nunit.Selenium.Test
 	public class SeleniumTestExample
 	{
 
-		[OneTimeTearDown]
-		public void OneTimeTearDown()
-		{
-			if (driver != null)
-			{
-				//If the test did not pass, take a screenshot
-				if (TestContext.CurrentContext.Result.Outcome != NUnit.Framework.Interfaces.ResultState.Success)
-				{
-					string currentDirectory = System.Reflection.Assembly.GetExecutingAssembly().Location;
-					currentDirectory = currentDirectory.Substring(0, currentDirectory.LastIndexOf("\\") + 1);
-					((ITakesScreenshot)driver).GetScreenshot().SaveAsFile($"{currentDirectory}Seleniumfailure.png", ScreenshotImageFormat.Png);
-				}
-				driver.Quit();
-			}
-
-		}
-
-		static RemoteWebDriver driver = null;
-
 		[Test()]
 		[Ignore("Don't run in CI")]
-
 		public void OpenPageAndCheckUseragentString()
 		{
 
@@ -103,29 +83,42 @@ namespace Nunit.Selenium.Test
 		public void SeleniumGrid()
 		{
 
-			driver = GetIEDriver();
-
-			By locator = By.Id("useragent");
-
-			LoadPageAndWaitForElement(driver, locator);
-
-			IWebElement theElement = driver.FindElement(locator);
-
-			if (driver.Capabilities.BrowserName.Equals("internet explorer"))
+			RemoteWebDriver driver = GetIEDriver();
+			try
 			{
-				Assert.That(theElement.Text, Contains.Substring("trident").IgnoreCase.Or.Contains("internet").IgnoreCase.And.Contains("explorer").IgnoreCase);
+
+				By locator = By.Id("useragent");
+
+				LoadPageAndWaitForElement(driver, locator);
+
+				IWebElement theElement = driver.FindElement(locator);
+
+				if (driver.Capabilities.BrowserName.Equals("internet explorer"))
+				{
+					Assert.That(theElement.Text, Contains.Substring("trident").IgnoreCase.Or.Contains("internet").IgnoreCase.And.Contains("explorer").IgnoreCase);
+				}
+				else if (driver.Capabilities.BrowserName.Equals("opera"))
+				{
+					Assert.That(theElement.Text, Contains.Substring("OPR/").IgnoreCase);
+				}
+				else
+				{
+					Assert.That(theElement.Text, Contains.Substring(driver.Capabilities.BrowserName).IgnoreCase);
+				}
 			}
-			else if (driver.Capabilities.BrowserName.Equals("opera"))
+			finally
 			{
-				Assert.That(theElement.Text, Contains.Substring("OPR/").IgnoreCase);
-			}
-			else
-			{
-				Assert.That(theElement.Text, Contains.Substring(driver.Capabilities.BrowserName).IgnoreCase);
+				//If the test did not pass, take a screenshot
+				if (TestContext.CurrentContext.Result.Outcome != NUnit.Framework.Interfaces.ResultState.Success)
+				{
+					string currentDirectory = System.Reflection.Assembly.GetExecutingAssembly().Location;
+					currentDirectory = currentDirectory.Substring(0, currentDirectory.LastIndexOf("\\") + 1);
+					((ITakesScreenshot)driver).GetScreenshot().SaveAsFile($"{currentDirectory}Seleniumfailure.png", ScreenshotImageFormat.Png);
+				}
+				driver.Quit();
 			}
 
 		}
-
-
+		
 	}
 }
