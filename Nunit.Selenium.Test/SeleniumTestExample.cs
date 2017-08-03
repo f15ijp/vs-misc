@@ -154,6 +154,43 @@ namespace Nunit.Selenium.Test
 			}
 		}
 
-	
+		[TestCase(3)]
+		public void SeveralBrowserInstancesAreIsolatedFromEachOther(int numberOfBrowserInstances)
+		{
+
+			List<RemoteWebDriver> drivers = new List<RemoteWebDriver>();
+			try
+			{
+				string cookieName = "seliumtestcookie";
+				for (int i = 0; i < numberOfBrowserInstances; i++)
+				{
+					RemoteWebDriver ieDriver = GetIEDriver();
+					By locator = By.Id("useragent");
+					
+
+					LoadPageAndWaitForElement(ieDriver, locator);
+
+					Cookie cookie = new Cookie(cookieName, ieDriver.SessionId.ToString(), "f15ijp.com", "/", DateTime.Now.AddHours(1));
+					ieDriver.Manage().Cookies.AddCookie(cookie);
+
+					drivers.Add(ieDriver);
+				}
+
+				foreach (RemoteWebDriver ieDriver in drivers)
+				{
+					Cookie cookie = ieDriver.Manage().Cookies.GetCookieNamed(cookieName);
+					Assert.That(cookie.Value, Is.EqualTo(ieDriver.SessionId.ToString()));
+				}
+
+			}
+			finally
+			{
+				foreach (RemoteWebDriver ieDriver in drivers)
+				{
+					ieDriver.Quit();
+				}
+			}
+
+		}
 	}
 }
