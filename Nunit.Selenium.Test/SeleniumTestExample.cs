@@ -65,8 +65,10 @@ namespace Nunit.Selenium.Test
 
 			DesiredCapabilities browserCapabilites = DesiredCapabilities.InternetExplorer();
 			browserCapabilites.SetCapability("ignoreProtectedModeSettings", true);
+			browserCapabilites.SetCapability("initialBrowserUrl", "http://www.f15ijp.com/misc/ua.php");
 			browserCapabilites.SetCapability("ie.forceCreateProcessApi", true);
-			browserCapabilites.SetCapability("ie.browserCommandLineSwitches", "-private");
+			browserCapabilites.SetCapability("ie.validateCookieDocumentType", false);
+			//browserCapabilites.SetCapability("ie.browserCommandLineSwitches", "-private");
 
 			return new RemoteWebDriver(new Uri(hubUrl), browserCapabilites);
 		}
@@ -111,14 +113,47 @@ namespace Nunit.Selenium.Test
 				//If the test did not pass, take a screenshot
 				if (TestContext.CurrentContext.Result.Outcome != NUnit.Framework.Interfaces.ResultState.Success)
 				{
-					string currentDirectory = System.Reflection.Assembly.GetExecutingAssembly().Location;
-					currentDirectory = currentDirectory.Substring(0, currentDirectory.LastIndexOf("\\") + 1);
-					((ITakesScreenshot)driver).GetScreenshot().SaveAsFile($"{currentDirectory}Seleniumfailure.png", ScreenshotImageFormat.Png);
+					try
+					{
+						string currentDirectory = System.Reflection.Assembly.GetExecutingAssembly().Location;
+						currentDirectory = currentDirectory.Substring(0, currentDirectory.LastIndexOf("\\") + 1);
+						((ITakesScreenshot)driver).GetScreenshot().SaveAsFile($"{currentDirectory}Seleniumfailure.png", ScreenshotImageFormat.Png);
+					}
+					catch (Exception)
+					{
+						throw;
+					}
 				}
 				driver.Quit();
 			}
 
 		}
-		
+
+		[Test]
+		public void SeleniumGridSetAndReadCookie()
+		{
+			RemoteWebDriver driver = GetIEDriver();
+
+			try
+			{
+				By locator = By.Id("useragent");
+				string cookieName = "seliumtestcookie";
+
+				LoadPageAndWaitForElement(driver, locator);
+				
+				Cookie cookie = new Cookie(cookieName, driver.SessionId.ToString(), "f15ijp.com", "/", DateTime.Now.AddHours(1));
+				driver.Manage().Cookies.AddCookie(cookie);
+
+				Cookie storedCookie = driver.Manage().Cookies.GetCookieNamed(cookieName);
+				Assert.That(storedCookie.Value, Is.EqualTo(driver.SessionId.ToString()));
+
+			}
+			finally
+			{
+				driver.Quit();
+			}
+		}
+
+	
 	}
 }
