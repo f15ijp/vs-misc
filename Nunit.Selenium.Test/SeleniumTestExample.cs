@@ -55,14 +55,18 @@ namespace Nunit.Selenium.Test
 
 		}
 
-		public RemoteWebDriver GetIEDriver()
+		public String GetHubUrl()
 		{
 			string hubUrl = System.Configuration.ConfigurationManager.AppSettings["seleniumHub"];
 			if (string.IsNullOrEmpty(hubUrl))
 			{
 				hubUrl = "http://localhost:4444/wd/hub";
 			}
+			return hubUrl;
+		}
 
+		public RemoteWebDriver GetIEDriver()
+		{
 			DesiredCapabilities browserCapabilites = DesiredCapabilities.InternetExplorer();
 			browserCapabilites.SetCapability("ignoreProtectedModeSettings", true);
 			browserCapabilites.SetCapability("initialBrowserUrl", "http://www.f15ijp.com/misc/ua.php");
@@ -70,7 +74,7 @@ namespace Nunit.Selenium.Test
 			browserCapabilites.SetCapability("ie.validateCookieDocumentType", false);
 			//browserCapabilites.SetCapability("ie.browserCommandLineSwitches", "-private");
 
-			return new RemoteWebDriver(new Uri(hubUrl), browserCapabilites);
+			return new RemoteWebDriver(new Uri(GetHubUrl()), browserCapabilites);
 		}
 
 		public void LoadPageAndWaitForElement(RemoteWebDriver driver, By locator)
@@ -192,5 +196,6 @@ namespace Nunit.Selenium.Test
 			}
 
 		}
+
 	}
 }
