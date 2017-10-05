@@ -48,9 +48,8 @@ namespace Nunit.Selenium.Test
 			}
 			finally
 			{
-
+				driver.Close();
 				driver.Quit();
-
 			}
 
 		}
@@ -128,6 +127,7 @@ namespace Nunit.Selenium.Test
 						throw;
 					}
 				}
+				driver.Close();
 				driver.Quit();
 			}
 
@@ -154,6 +154,7 @@ namespace Nunit.Selenium.Test
 			}
 			finally
 			{
+				driver.Close();
 				driver.Quit();
 			}
 		}
@@ -191,6 +192,7 @@ namespace Nunit.Selenium.Test
 			{
 				foreach (RemoteWebDriver ieDriver in drivers)
 				{
+					ieDriver.Close();
 					ieDriver.Quit();
 				}
 			}
