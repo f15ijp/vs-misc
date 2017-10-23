@@ -17,9 +17,15 @@ namespace Nunit.Test
 		}
 		
 		[TestCase(-1)]
-		public void TestExceptions(int input)
+		public void TestExceptions_Assert_Throws(int input)
 		{
 			Assert.Throws<ArgumentException>(() => Misc.Fizzbuzz.FizzBuzz(input));
+		}
+
+		[TestCase(-1)]
+		public void TestException_Assert_That(int input)
+		{
+			Assert.That(() => Misc.Fizzbuzz.FizzBuzz(input), Throws.ArgumentException);
 		}
 
 	}
