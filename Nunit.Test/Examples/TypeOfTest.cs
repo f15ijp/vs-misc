@@ -12,9 +12,9 @@ namespace Nunit.Test.Examples
 	public class TypeOfTest
 	{
 		[Test]
-		public void TypeOfListOfInt()
+		public void TypeOf_ListOfInt()
 		{
-			List<int> theList = new List<int>();
+			var theList = new List<int>();
 
 			Assert.That(theList, Is.TypeOf<List<int>>());
 		}
