@@ -1,9 +1,8 @@
 ﻿Option Explicit On
 
-Imports System
 Imports NUnit.Framework
 
-Namespace Examples
+Namespace TestExamples
 
 	<TestFixture>
 	Public Class TypeOfTest
