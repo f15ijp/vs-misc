@@ -1,6 +1,6 @@
 ﻿Imports NUnit.Framework
 
-Namespace Examples.LINQExamples
+Namespace LINQExamples
 
 	<TestFixture> Public Class ListExamples
 
