@@ -59,9 +59,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Examples\LINQExamples\ListExamples.vb" />
-    <Compile Include="TestExamples\ExceptionTest.vb" />
-    <Compile Include="TestExamples\TypeOfTest.vb" />
+    <Compile Include="Examples\ExceptionTest.vb" />
+    <Compile Include="Examples\TypeOfTest.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
