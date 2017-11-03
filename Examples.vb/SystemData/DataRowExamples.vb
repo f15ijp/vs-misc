@@ -19,6 +19,7 @@ Namespace SystemData
 
 		End Sub
 
+		#Region "Infrastructure"
 
 		Public Function GetDataRow(popluateWithValues As Boolean) As DataRow
 
@@ -43,6 +44,8 @@ Namespace SystemData
 			Return dt
 
 		End Function
+
+		#End Region
 
 	End Class
 
