@@ -19,5 +19,27 @@ Namespace Examples
 			Assert.That(GetRandomEnum(Of ExampleEnum)(), [Is].TypeOf(GetType(ExampleEnum)))
 		End Sub
 
+		Public Shared Function GetEnumFromName(Of T)(ByVal name As String) As T
+
+			Try
+				Dim theEnum As T = CType([Enum].Parse(GetType(T), name), T)
+				If [Enum].IsDefined(GetType(T), theEnum) Then
+					Return theEnum
+				End If
+			Catch e As ArgumentException
+			End Try
+			Return Nothing
+
+		End Function
+
+		<Test()> Public Sub GetEnumFromName_Example()
+
+			For Each item As EnumExamples In [Enum].GetValues(GetType(ExampleEnum))
+				Dim statusFromString As ExampleEnum = GetEnumFromName(Of ExampleEnum)(item.ToString())
+				Assert.That(statusFromString, [Is].EqualTo(item))
+			Next
+
+		End Sub
+
 	End Class
 End NameSpace
