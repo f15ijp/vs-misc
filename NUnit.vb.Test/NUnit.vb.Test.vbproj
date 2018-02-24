@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Examples\ExceptionTest.vb" />
     <Compile Include="Examples\TypeOfTest.vb" />
+    <Compile Include="FizzbuzzTest.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -105,7 +106,12 @@
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Examples.cs\Examples.cs.csproj">
+      <Project>{8edf4429-251a-416d-bb68-93f227191bcf}</Project>
+      <Name>Examples.cs</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
