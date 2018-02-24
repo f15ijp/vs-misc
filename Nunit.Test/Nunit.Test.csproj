@@ -66,9 +66,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Misc\Misc.csproj">
-      <Project>{46640e2d-a87e-48e0-8120-70dc97f118f3}</Project>
-      <Name>Misc</Name>
+    <ProjectReference Include="..\Examples.cs\Examples.cs.csproj">
+      <Project>{8edf4429-251a-416d-bb68-93f227191bcf}</Project>
+      <Name>Examples.cs</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

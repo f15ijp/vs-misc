@@ -13,19 +13,19 @@ namespace Nunit.Test
 		[TestCase(15, ExpectedResult = "FizzBuzz")]
 		public string TestCases(int input)
 		{
-			return Misc.Fizzbuzz.FizzBuzz(input);
+			return Fizzbuzz.FizzBuzz(input);
 		}
 		
 		[TestCase(-1)]
 		public void TestExceptions_Assert_Throws(int input)
 		{
-			Assert.Throws<ArgumentException>(() => Misc.Fizzbuzz.FizzBuzz(input));
+			Assert.Throws<ArgumentException>(() => Fizzbuzz.FizzBuzz(input));
 		}
 
 		[TestCase(-1)]
 		public void TestException_Assert_That(int input)
 		{
-			Assert.That(() => Misc.Fizzbuzz.FizzBuzz(input), Throws.ArgumentException);
+			Assert.That(() => Fizzbuzz.FizzBuzz(input), Throws.ArgumentException);
 		}
 
 	}

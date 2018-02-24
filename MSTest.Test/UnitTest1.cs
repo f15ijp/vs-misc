@@ -12,7 +12,7 @@ namespace MSTest.Test
 			Exception expectedException = null;
 			try
 			{
-				Misc.Fizzbuzz.FizzBuzz(-1);
+				Fizzbuzz.FizzBuzz(-1);
 			}
 			catch(Exception ex)
 			{
