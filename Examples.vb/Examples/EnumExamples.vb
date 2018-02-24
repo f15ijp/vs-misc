@@ -34,7 +34,7 @@ Namespace Examples
 
 		<Test()> Public Sub GetEnumFromName_Example()
 
-			For Each item As EnumExamples In [Enum].GetValues(GetType(ExampleEnum))
+			For Each item As EnumExamples.ExampleEnum In [Enum].GetValues(GetType(ExampleEnum))
 				Dim statusFromString As ExampleEnum = GetEnumFromName(Of ExampleEnum)(item.ToString())
 				Assert.That(statusFromString, [Is].EqualTo(item))
 			Next
