@@ -84,7 +84,9 @@ namespace Nunit.Selenium.Test
 			wait.Until(ExpectedConditions.ElementIsVisible(locator));
 		}
 
+
 		[Test()]
+		[Ignore("Don't run in CI")]
 		public void SeleniumGrid()
 		{
 
@@ -134,6 +136,7 @@ namespace Nunit.Selenium.Test
 		}
 
 		[Test]
+		[Ignore("Don't run in CI")]
 		public void SeleniumGridSetAndReadCookie()
 		{
 			RemoteWebDriver driver = GetIEDriver();
@@ -144,7 +147,7 @@ namespace Nunit.Selenium.Test
 				string cookieName = "seliumtestcookie";
 
 				LoadPageAndWaitForElement(driver, locator);
-				
+
 				Cookie cookie = new Cookie(cookieName, driver.SessionId.ToString(), "f15ijp.com", "/", DateTime.Now.AddHours(1));
 				driver.Manage().Cookies.AddCookie(cookie);
 
@@ -160,6 +163,7 @@ namespace Nunit.Selenium.Test
 		}
 
 		[TestCase(3)]
+		[Ignore("Don't run in CI")]
 		public void SeveralBrowserInstancesAreIsolatedFromEachOther(int numberOfBrowserInstances)
 		{
 
@@ -171,7 +175,7 @@ namespace Nunit.Selenium.Test
 				{
 					RemoteWebDriver ieDriver = GetIEDriver();
 					By locator = By.Id("useragent");
-					
+
 
 					LoadPageAndWaitForElement(ieDriver, locator);
 
