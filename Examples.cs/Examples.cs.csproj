@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConversionExamples\TryParse\DoubleTryParse.cs" />
+    <Compile Include="ConversionExamples\TryParse\SingleTryParse.cs" />
     <Compile Include="Fizzbuzz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
