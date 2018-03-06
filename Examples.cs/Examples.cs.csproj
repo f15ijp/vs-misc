@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConversionExamples\TryParse\DoubleTryParse.cs" />
     <Compile Include="Fizzbuzz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
