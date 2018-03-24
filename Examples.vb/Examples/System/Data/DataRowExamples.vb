@@ -1,7 +1,7 @@
 ﻿Imports System.Data
 Imports NUnit.Framework
 
-Namespace SystemData
+Namespace Examples.System.Data
 
 	<TestFixture>
 	Public Class DataRowExamples
