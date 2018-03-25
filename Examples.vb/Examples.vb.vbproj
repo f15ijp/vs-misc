@@ -50,6 +50,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +83,7 @@
     </Compile>
     <Compile Include="Statements\SelectCaseExamples.vb" />
     <Compile Include="Examples\System\Data\DataRowExamples.vb" />
+    <Compile Include="Examples\System\Web\UI\WebControls\TextBoxExamples.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
