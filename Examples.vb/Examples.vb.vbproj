@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="ConversionExamples\DoubleTryParse.vb" />
     <Compile Include="Examples\EnumExamples.vb" />
+    <Compile Include="Examples\System\Data\DataTableExamples.vb" />
     <Compile Include="LINQExamples\ListExamples.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
