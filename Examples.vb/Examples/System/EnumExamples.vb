@@ -1,6 +1,6 @@
 ﻿Imports NUnit.Framework
 
-Namespace Examples
+Namespace Examples.System
 	Public Class EnumExamples
 
 		Enum ExampleEnum
