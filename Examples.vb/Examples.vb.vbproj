@@ -67,6 +67,7 @@
     <Compile Include="Examples\ConstantsExample.vb" />
     <Compile Include="Examples\System\EnumExamples.vb" />
     <Compile Include="Examples\System\Data\DataTableExamples.vb" />
+    <Compile Include="Examples\System\StringExamples.vb" />
     <Compile Include="LINQExamples\ListExamples.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
