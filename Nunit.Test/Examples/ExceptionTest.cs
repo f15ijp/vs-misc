@@ -16,7 +16,7 @@ namespace Nunit.Test.Examples
 		}
 
 		[Test]
-		public void Excpetion_Assert_Throws_TesFunction()
+		public void Excpetion_Assert_Throws_TestFunction()
 		{
 			Assert.Throws<ArgumentException>(() => FunctionThatThrows());
 		}
@@ -29,18 +29,33 @@ namespace Nunit.Test.Examples
 		public void Excpetion_Assert_That_TestVoid()
 		{
 			Assert.That(VoidThatThrows, Throws.ArgumentException);
+			Assert.That(VoidThatDontThrow, Throws.Nothing);
 		}
 
 		[Test]
 		public void Excpetion_Assert_That_TestFunction()
 		{
 			Assert.That(FunctionThatThrows, Throws.ArgumentException);
+			Assert.That(FunctionThatDontThrow, Throws.Nothing);
 		}
 
 		#endregion
 
-		#region "Infrastructure for test"
+		#region "Assert.DoesNotThrow"
+		[Test]
+		public void Excpetion_Assert_DoesNotThrow_TestVoid()
+		{
+			Assert.DoesNotThrow(VoidThatDontThrow);
+		}
 
+		[Test]
+		public void Excpetion_Assert_DoesNotThrow_TestFunction()
+		{
+			Assert.DoesNotThrow(() => FunctionThatDontThrow());
+		}
+		#endregion
+
+		#region "Infrastructure for test"
 
 		private static void VoidThatThrows()
 		{
@@ -50,6 +65,15 @@ namespace Nunit.Test.Examples
 		private static string FunctionThatThrows()
 		{
 			throw new ArgumentException("Throws for test");
+		}
+
+		private static void VoidThatDontThrow()
+		{
+		}
+
+		private static string FunctionThatDontThrow()
+		{
+			return null;
 		}
 
 		#endregion

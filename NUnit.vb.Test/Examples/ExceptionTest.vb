@@ -46,6 +46,19 @@ Namespace Examples
 			Assert.That(Sub() FunctionThatThrowsWithArgument(True), Throws.ArgumentException)
 		End Sub
 
+#Region "Don't Throw"
+		Public Sub Assert_That_Dont_Throw()
+			Assert.That(Sub() FunctionThatThrowsWithArgument(False), Throws.Nothing)
+			Assert.That(Sub() SubThatThrowsWithArgument(False), Throws.Nothing)
+		End Sub
+
+		Public Sub Dont_Throw()
+			Assert.DoesNotThrow(Sub() FunctionThatThrowsWithArgument(False), Nothing)
+			Assert.DoesNotThrow(Sub() SubThatThrowsWithArgument(False), Nothing)
+		End Sub
+
+#End Region
+
 #Region "Infrasctructure for test"
 
 		Private Shared Sub SubThatThrows()
