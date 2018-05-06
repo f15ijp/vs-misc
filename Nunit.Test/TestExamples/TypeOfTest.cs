@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
 
-namespace TestExamples
+namespace Nunit.Test.TestExamples
 {
 	[TestFixture]
 	public class TypeOfTest
