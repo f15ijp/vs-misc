@@ -43,6 +43,7 @@
       <HintPath>..\packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
@@ -61,6 +62,7 @@
     <Compile Include="Examples\Statements\SelectCaseExamples.cs" />
     <Compile Include="Examples\System\StringExamples.cs" />
     <Compile Include="Examples\System\Web\Script\Serialization\JSONExamples.cs" />
+    <Compile Include="Examples\System\Data\DataSetExamples.cs" />
     <Compile Include="TestExamples\ExceptionTest.cs" />
     <Compile Include="TestExamples\TypeOfTest.cs" />
     <Compile Include="FizzbuzzTest.cs" />
