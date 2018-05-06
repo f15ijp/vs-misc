@@ -1,9 +1,5 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConversionExamples.TryParse
 {
@@ -32,11 +28,8 @@ namespace ConversionExamples.TryParse
 		[SetCulture("sv-SE")]
 		public void DoubeTryParseExample_svSE()
 		{
-
 			Assert.That(Double.TryParse("1,5", out double testVar), Is.True);
 			Assert.That(Double.TryParse("1.5", out testVar), Is.False);
-
-
 		}
 	}
 }

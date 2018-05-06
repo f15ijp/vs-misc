@@ -63,6 +63,8 @@
     <Compile Include="Examples\System\StringExamples.cs" />
     <Compile Include="Examples\System\Web\Script\Serialization\JSONExamples.cs" />
     <Compile Include="Examples\System\Data\DataSetExamples.cs" />
+    <Compile Include="Examples\TryParse\DoubleTryParse.cs" />
+    <Compile Include="Examples\TryParse\SingleTryParse.cs" />
     <Compile Include="TestExamples\ExceptionTest.cs" />
     <Compile Include="TestExamples\TypeOfTest.cs" />
     <Compile Include="FizzbuzzTest.cs" />
