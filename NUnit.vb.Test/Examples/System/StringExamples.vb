@@ -20,5 +20,18 @@ Namespace Examples.System
 			Assert.That(testVar, [Is].TypeOf(GetType(String)))
 		End Sub
 
+		<TestCase("1", "2")>
+		<TestCase("a", "b")>
+		<TestCase("2000-01-01", "2000-01-02")>
+		Public Sub LessThan(Byval a As String, Byval b As String)
+			Assert.That(a, [Is].LessThanOrEqualTo(b))
+		End Sub
+
+		<Test>
+		Public Sub CompareDateToString()
+			Assert.That(Today.ToString(), [Is].Not.EqualTo(Today))
+			Assert.That(Today.ToString() = Today)
+		End Sub
+
 	End Class
 End Namespace
