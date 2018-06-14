@@ -2,7 +2,7 @@
 
 Imports NUnit.Framework
 
-Namespace Examples
+Namespace Tests
 
 	<TestFixture>
 	Public Class ExceptionTest
