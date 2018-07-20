@@ -55,8 +55,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Examples\ExceptionTest.cs" />
-    <Compile Include="Examples\TypeOfTest.cs" />
+    <Compile Include="TestExamples\ExceptionTest.cs" />
+    <Compile Include="TestExamples\TypeOfTest.cs" />
     <Compile Include="FizzbuzzTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

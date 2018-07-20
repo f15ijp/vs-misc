@@ -1,7 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 
-namespace Nunit.Test.Examples
+namespace TestExamples
 {
 	[TestFixture]
 	public class ExceptionTest
