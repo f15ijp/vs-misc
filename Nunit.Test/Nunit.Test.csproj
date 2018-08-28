@@ -56,7 +56,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Examples\EnumExamples.cs" />
+    <Compile Include="Examples\System\EnumExamples.cs" />
     <Compile Include="Examples\Statements\SelectCaseExamples.cs" />
     <Compile Include="Examples\System\Web\Script\Serialization\JSONExamples.cs" />
     <Compile Include="TestExamples\ExceptionTest.cs" />
