@@ -8,8 +8,9 @@ namespace Examples
 	{
 		public enum TestEnum
 		{
-			One,
-			Two
+			Zero = 0,
+			One = 1,
+			Two = 2
 		}
 
 		[Test]
@@ -20,6 +21,17 @@ namespace Examples
 				//do something with the enum
 				Assert.That(testEnum, Is.Not.Null);
 			}
+		}
+
+		[TestCase(TestEnum.One, 1)]
+		public void ConvertToInteger(TestEnum theEnum, int enumIntValue)
+		{
+			var enumInteger = Convert.ToInt32(theEnum);
+			Assert.Multiple(() =>
+			{
+				Assert.That(enumInteger, Is.TypeOf<int>());
+				Assert.That(enumInteger, Is.EqualTo(enumIntValue));
+			});
 		}
 
 	}
