@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -62,6 +62,7 @@
     <Compile Include="Examples\System\Collections\Dictionary_vs_OrderedDictionay.cs" />
     <Compile Include="Examples\System\Collections\Specialized\OrderedDictionayExamples.cs" />
     <Compile Include="Examples\System\PropertyExamples.cs" />
+    <Compile Include="Examples\System\Net\Mail\MailExamples.cs" />
     <Compile Include="TestExamples\FizzbuzzTest.cs" />
     <Compile Include="Examples\System\DateTimeExamples.cs" />
     <Compile Include="Examples\System\EnumExamples.cs" />
