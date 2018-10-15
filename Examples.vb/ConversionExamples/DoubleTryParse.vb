@@ -1,10 +1,8 @@
 ﻿Option Explicit On
 
-Imports System
 Imports NUnit.Framework
 
-Namespace Examples.vb
-
+Namespace ConversionExamples
 	<TestFixture>
 	Public Class DoubleTryParse
 
@@ -25,5 +23,4 @@ Namespace Examples.vb
 		End Sub
 
 	End Class
-
 End Namespace

@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{29C0CDA5-30EA-4871-B1C0-29F2C804949F}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Examples.vb</RootNamespace>
+    <RootNamespace>Examples</RootNamespace>
     <AssemblyName>Examples.vb</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>

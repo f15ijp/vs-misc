@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Examples.System.Examples;
+using NUnit.Framework;
 
 namespace Examples.Statements
 {

@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace Examples.cs.Examples
+namespace Examples
 {
 	[TestFixture]
 	public class TestInheritedConstants

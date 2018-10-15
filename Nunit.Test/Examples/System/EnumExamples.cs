@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 
-namespace Examples
+namespace Examples.System.Examples
 {
 	[TestFixture]
 	public class EnumExamples

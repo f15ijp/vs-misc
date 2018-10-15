@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-namespace Nunit.Test.Examples.System
+namespace Examples.System
 {
 	[TestFixture]
 	public class StringExamples

@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 
-namespace ConversionExamples.TryParse
+namespace Examples.TryParse
 {
 	[TestFixture]
 	public class DoubleTryParse
