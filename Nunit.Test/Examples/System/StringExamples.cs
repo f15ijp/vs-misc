@@ -13,7 +13,7 @@ namespace Nunit.Test.Examples.System
 			Assert.Multiple(() =>
 			{
 				Assert.That(string.Concat(Enumerable.Repeat("a", 2)), Is.EqualTo("aa"));
-				Assert.That(string.Concat(Enumerable.Repeat("abab", 3)), Is.EqualTo("ababab"));
+				Assert.That(string.Concat(Enumerable.Repeat("abab", 3)), Is.EqualTo("abababababab"));
 			});
 		}
 
