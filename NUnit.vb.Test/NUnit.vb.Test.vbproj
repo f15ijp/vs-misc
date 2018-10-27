@@ -69,6 +69,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Examples\IO\FileExamples.vb" />
     <Compile Include="Examples\LoopExamples.vb" />
     <Compile Include="Examples\System\ExecptionExamples.vb" />
     <Compile Include="Tests\ExceptionTest.vb" />

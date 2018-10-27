@@ -60,6 +60,7 @@
     <Compile Include="TestExamples\FizzbuzzTest.cs" />
     <Compile Include="Examples\System\EnumExamples.cs" />
     <Compile Include="Examples\Statements\SelectCaseExamples.cs" />
+    <Compile Include="Examples\System\IO\FileExamples.cs" />
     <Compile Include="Examples\System\StringExamples.cs" />
     <Compile Include="Examples\System\Web\Script\Serialization\JSONExamples.cs" />
     <Compile Include="Examples\System\Data\DataSetExamples.cs" />
