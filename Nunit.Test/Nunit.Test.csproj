@@ -58,6 +58,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="TestExamples\FizzbuzzTest.cs" />
+    <Compile Include="Examples\System\DateTimeExamples.cs" />
     <Compile Include="Examples\System\EnumExamples.cs" />
     <Compile Include="Examples\Statements\SelectCaseExamples.cs" />
     <Compile Include="Examples\System\IO\FileExamples.cs" />
