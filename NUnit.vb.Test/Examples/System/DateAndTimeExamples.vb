@@ -1,4 +1,4 @@
-Imports NUnit.Framework
+﻿Imports NUnit.Framework
 
 Namespace Examples.System
 	<TestFixture()>
@@ -16,6 +16,15 @@ Namespace Examples.System
 		Public Function Example_of_datediff_with_days(dateFrom As String, dateTo As String)
 			Return DateDiff(DateInterval.Day, DateTime.Parse(dateFrom), DateTime.Parse(dateTo))
 		End Function
+
+		<Test()>
+		Public Sub Example_of_datediff_datetime_yesterday_with_time_compared_to_date_today()
+			Dim yesterday As DateTime = DateTime.Now.AddDays(-1)
+			Assert.Multiple(Sub()
+								Assert.That(DateDiff(DateInterval.Day, DateTime.Parse(yesterday), DateTime.Today), [Is].EqualTo(0))
+								Assert.That(DateDiff(DateInterval.Day, DateTime.Parse(yesterday), DateTime.Today.AddDays(1)), [Is].EqualTo(1))
+							End Sub)
+		End Sub
 
 	End Class
 End Namespace
