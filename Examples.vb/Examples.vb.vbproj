@@ -67,7 +67,6 @@
     <Compile Include="Examples\ConstantsExample.vb" />
     <Compile Include="Examples\JoinedLines.vb" />
     <Compile Include="Examples\System\EnumExamples.vb" />
-    <Compile Include="Examples\System\Data\DataTableExamples.vb" />
     <Compile Include="LINQExamples\ListExamples.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -85,7 +84,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Statements\SelectCaseExamples.vb" />
-    <Compile Include="Examples\System\Data\DataRowExamples.vb" />
     <Compile Include="Examples\System\Web\UI\WebControls\TextBoxExamples.vb" />
   </ItemGroup>
   <ItemGroup>

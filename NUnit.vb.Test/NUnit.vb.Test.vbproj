@@ -71,6 +71,8 @@
   <ItemGroup>
     <Compile Include="Examples\IO\FileExamples.vb" />
     <Compile Include="Examples\LoopExamples.vb" />
+    <Compile Include="Examples\System\Data\DataRowExamples.vb" />
+    <Compile Include="Examples\System\Data\DataTableExamples.vb" />
     <Compile Include="Examples\System\DateAndTimeExamples.vb" />
     <Compile Include="Examples\System\ExecptionExamples.vb" />
     <Compile Include="Tests\ExceptionTest.vb" />
