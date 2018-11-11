@@ -91,9 +91,9 @@ Namespace Examples.System.Data
 
 #Region "Infrastructure"
 
-		Public Function GetDataRow(popluateWithValues As Boolean) As DataRow
+		Public Shared Function GetDataRow(popluateWithValues As Boolean) As DataRow
 
-			Dim dr As DataRow = GetDataTable().NewRow()
+			Dim dr As DataRow = DataTableExamples.GetDataTable().NewRow()
 			If (popluateWithValues) Then
 				dr("string") = String.Empty
 				dr("object") = New Object
@@ -101,19 +101,6 @@ Namespace Examples.System.Data
 			End If
 
 			Return dr
-
-		End Function
-
-		Public Function GetDataTable() As DataTable
-
-			Dim dt As New DataTable()
-			dt.Columns.Add(New DataColumn("string", GetType(String)))
-			dt.Columns.Add(New DataColumn("object", GetType(Object)))
-			dt.Columns.Add(New DataColumn("integer", GetType(Integer)))
-			dt.Columns.Add(New DataColumn("null", GetType(Object)))
-
-			dt.AcceptChanges()
-			Return dt
 
 		End Function
 
