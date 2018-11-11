@@ -22,5 +22,18 @@ Namespace Examples
 			Return counter
 		End Function
 
+		<TestCase(0, 10, ExpectedResult:=10)>
+		<TestCase(0, 0, ExpectedResult:=0)>
+		<TestCase(0, -1, ExpectedResult:=0)>
+		Public Function WhileLoop_number_of_itterations(from As Integer, endAt As Integer) As Integer
+			Dim counter As Integer = 0
+			Dim i As Integer = from
+			While i < endAt
+				counter += 1
+				i += 1
+			End While
+			Return counter
+		End Function
+
 	End Class
 End Namespace
