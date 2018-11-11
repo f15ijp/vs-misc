@@ -12,14 +12,15 @@ Namespace Examples
 			Assert.That(counter, [Is].EqualTo(1))
 		End Sub
 
-		<Test>
-		Public Sub ForLoop_from_zero_to_zero()
+		<TestCase(0, 0, ExpectedResult:=1)>
+		<TestCase(0, -1, ExpectedResult:=0)>
+		Public Function ForLoop_number_of_itterations(from As Integer, endAt As Integer) As Integer
 			Dim counter As Integer = 0
-			For i As Integer = 0 To 0
+			For i As Integer = from To endAt
 				counter += 1
 			Next
-			Assert.That(counter, [Is].EqualTo(1))
-		End Sub
+			Return counter
+		End Function
 
 	End Class
 End Namespace
