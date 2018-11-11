@@ -12,7 +12,14 @@ Namespace Examples.System.Data
 				Next
 			Next
 		End Sub
+
 		<Test()>
+		Public Sub Adding_a_row_to_an_empty_DataTable()
+			Dim dt As DataTable = GetDataTable()
+			dt.Rows.InsertAt(dt.NewRow(), 0)
+			Assert.That(dt.Rows.Count, [Is].EqualTo(1))
+		End Sub
+
 		<Test()>
 		Public Sub Accessing_non_existant_row_by_index_gives_indexOutOfRangeExcetion()
 			Dim dt As DataTable = GetDataTable()
