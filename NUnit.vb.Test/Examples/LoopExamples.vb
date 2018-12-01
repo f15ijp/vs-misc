@@ -3,6 +3,8 @@
 Namespace Examples
 	<TestFixture()>
 	Public Class LoopExamples
+
+#Region "For"
 		<Test>
 		Public Sub ForLoop_from_zero_to_one_minus_one()
 			Dim counter As Integer = 0
@@ -22,6 +24,39 @@ Namespace Examples
 			Return counter
 		End Function
 
+		<TestCase(0, 10, 11, ExpectedResult:=1)>
+		<TestCase(0, 10, -1, ExpectedResult:=12)>
+		Public Function ForLoop_change_value_of_i(startAt As Integer, endAt As Integer, changeTo As Integer)
+			dim hasChanged As Boolean
+			Dim counter As Integer = 0
+			For i As Integer = startAt To endAt
+				If Not hasChanged
+					i = changeTo
+					hasChanged = True
+				End If
+				counter += 1
+			Next
+			Return counter
+		End Function
+
+		<TestCase(0, 10, 11, ExpectedResult:=11)>
+		<TestCase(0, 10, -1, ExpectedResult:=11)>
+		Public Function ForLoop_change_value_of_EndAt(startAt As Integer, endAt As Integer, changeTo As Integer)
+			dim hasChanged As Boolean
+			Dim counter As Integer = 0
+			For i As Integer = startAt To endAt
+				If Not hasChanged
+					'note: as the loop has already started changing the end of it will have no effect
+					endAt = changeTo
+					hasChanged = True
+				End If
+				counter += 1
+			Next
+			Return counter
+		End Function
+
+#End Region
+#Region "While"
 		<TestCase(0, 10, ExpectedResult:=10)>
 		<TestCase(0, 0, ExpectedResult:=0)>
 		<TestCase(0, -1, ExpectedResult:=0)>
@@ -34,6 +69,7 @@ Namespace Examples
 			End While
 			Return counter
 		End Function
+#End Region
 
 	End Class
 End Namespace
