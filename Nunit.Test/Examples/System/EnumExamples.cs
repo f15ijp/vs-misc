@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using System;
 
 namespace Examples.System.Examples
@@ -16,7 +16,7 @@ namespace Examples.System.Examples
 		[Test]
 		public void LoopThroughEnum()
 		{
-			foreach (TestEnum testEnum in (TestEnum[])Enum.GetValues(typeof(TestEnum)))
+			foreach (var testEnum in (TestEnum[])Enum.GetValues(typeof(TestEnum)))
 			{
 				//do something with the enum
 				Assert.That(testEnum, Is.Not.Null);
@@ -26,11 +26,13 @@ namespace Examples.System.Examples
 		[TestCase(TestEnum.One, 1)]
 		public void ConvertToInteger(TestEnum theEnum, int enumIntValue)
 		{
-			var enumInteger = Convert.ToInt32(theEnum);
+			var convertedValue = Convert.ToInt32(theEnum);
+			var castedValue = (int) theEnum;
 			Assert.Multiple(() =>
 			{
-				Assert.That(enumInteger, Is.TypeOf<int>());
-				Assert.That(enumInteger, Is.EqualTo(enumIntValue));
+				Assert.That(convertedValue, Is.TypeOf<int>());
+				Assert.That(convertedValue, Is.EqualTo(enumIntValue));
+				Assert.That(castedValue, Is.EqualTo(convertedValue));
 			});
 		}
 

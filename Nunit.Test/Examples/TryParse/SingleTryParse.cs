@@ -10,7 +10,8 @@ namespace Examples.TryParse
 		[SetCulture("en-US")]
 		public void SingleTryParseExample_enUS()
 		{
-			Assert.That(Single.TryParse("1,5", out float testVar), Is.True);
+			float testVar;
+			Assert.That(Single.TryParse("1,5", out testVar), Is.True);
 			Assert.That(Single.TryParse("1.5", out testVar), Is.True);			
 		}
 
@@ -18,7 +19,8 @@ namespace Examples.TryParse
 		[SetCulture("en-UK")]
 		public void SingleTryParseExample_enUK()
 		{
-			Assert.That(Single.TryParse("1,5", out float testVar), Is.True);
+			float testVar;
+			Assert.That(Single.TryParse("1,5", out testVar), Is.True);
 			Assert.That(Single.TryParse("1.5", out testVar), Is.True);
 		}
 
@@ -26,7 +28,8 @@ namespace Examples.TryParse
 		[SetCulture("sv-SE")]
 		public void SingleTryParseExample_svSE()
 		{
-			Assert.That(Single.TryParse("1,5", out float testVar), Is.True);
+			float testVar;
+			Assert.That(Single.TryParse("1,5", out testVar), Is.True);
 			Assert.That(Single.TryParse("1.5", out testVar), Is.False);
 		}
 
