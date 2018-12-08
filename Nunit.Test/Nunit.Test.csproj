@@ -57,6 +57,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Examples\System\Collections\Generics\ListExample.cs" />
     <Compile Include="TestExamples\FizzbuzzTest.cs" />
     <Compile Include="Examples\System\DateTimeExamples.cs" />
     <Compile Include="Examples\System\EnumExamples.cs" />
