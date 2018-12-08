@@ -1,17 +1,13 @@
-using NUnit.Framework;
-using System;
+﻿using System;
 using System.Linq;
+using NUnit.Framework;
 
-namespace Examples.System
-{
+namespace Examples.Examples.System {
 	[TestFixture]
-	public class StringExamples
-	{
+	public class StringExamples {
 		[Test]
-		public void RepeatString()
-		{
-			Assert.Multiple(() =>
-			{
+		public void Repeat_string() {
+			Assert.Multiple(() => {
 				Assert.That(string.Concat(Enumerable.Repeat("a", 2)), Is.EqualTo("aa"));
 				Assert.That(string.Concat(Enumerable.Repeat("abab", 3)), Is.EqualTo("abababababab"));
 			});
