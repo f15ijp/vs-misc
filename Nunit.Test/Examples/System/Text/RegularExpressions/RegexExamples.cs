@@ -26,9 +26,9 @@ namespace Examples.Examples.System.Text.RegularExpressions {
 
 		[Test]
 		public void FindHtmlTagsMissingCitationChars() {
-			const string INPUT = @"<font face=arial size=2 a=""b"">some text</font>";
+			const string INPUT = @"<font face=arial size=2 size=""3"" a=""b"">some text</font>";
 
-			var correctedTag = Regex.Replace(INPUT, @"(?<=\bface=)[^ \>]*|(?<=\bsize=)[^ \>]*", match => "\"" + match.Value + "\"", RegexOptions.Multiline | RegexOptions.Singleline);
+			var correctedTag = Regex.Replace(INPUT, @"(?<=\bface=)[^ ""\>]*|(?<=\bsize=)[^ ""\>]*", match => string.IsNullOrEmpty(match.Value) ? string.Empty : "\"" + match.Value + "\"", RegexOptions.Multiline | RegexOptions.Singleline);
 
 			Assert.Multiple(() => {
 				Assert.That(correctedTag, Does.Not.Contain("\"\""));
