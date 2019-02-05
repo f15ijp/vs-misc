@@ -58,6 +58,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Examples\System\BoolExamples.cs" />
+    <Compile Include="Examples\System\Collections\ArrayExamples.cs" />
+    <Compile Include="Examples\System\Collections\Generics\DictionaryExamples.cs" />
     <Compile Include="Examples\System\Collections\Generics\ListExample.cs" />
     <Compile Include="Examples\System\Collections\Dictionary_vs_OrderedDictionay.cs" />
     <Compile Include="Examples\System\Collections\Specialized\OrderedDictionayExamples.cs" />
