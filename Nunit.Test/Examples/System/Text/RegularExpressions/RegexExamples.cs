@@ -37,5 +37,21 @@ namespace Examples.Examples.System.Text.RegularExpressions {
 			});
 		}
 
+		[Test]
+		public void ReplaceAmpersandButNotXmlEntities()
+		{
+			const string INPUT = "A&B &amp; &lt;hi&gt;&nbsp;";
+
+			var correctedTag = Regex.Replace(INPUT, @"&(?!(amp)|(lt)|(apos)|(gt)|(quot)|(nbsp);)", "&amp;");
+			Assert.Multiple(() =>
+			{
+				Assert.That(correctedTag, Does.Not.Contain("A&B"));
+				Assert.That(correctedTag, Does.Contain("A&amp;B"));
+				Assert.That(correctedTag, Does.Contain("&lt;"));
+				Assert.That(correctedTag, Does.Contain("&gt;"));
+				Assert.That(correctedTag, Does.Contain("&nbsp;"));
+			});
+		}
+
 	}
 }
