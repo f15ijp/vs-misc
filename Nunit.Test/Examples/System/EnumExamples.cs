@@ -23,6 +23,18 @@ namespace Examples.System.Examples
 			}
 		}
 
+		public static T GetRandomEnum<T>() {
+			var v = (T[])Enum.GetValues(typeof(T));
+			return (T)v.GetValue(new Random().Next(v.Length));
+		}
+
+
+		[Test]
+		public void Test_GetRandomEnum() {
+			Assert.That(GetRandomEnum<TestEnum>(), Is.Not.Null);
+		}
+
+
 		[TestCase(TestEnum.One, 1)]
 		public void ConvertToInteger(TestEnum theEnum, int enumIntValue)
 		{
