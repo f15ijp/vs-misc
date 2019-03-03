@@ -39,7 +39,12 @@ namespace Examples.System.Examples
 		[TestCase(TestEnum.One, "One")]
 		public void EnumToString(TestEnum theEnum, string enumName)
 		{
-			Assert.That(theEnum.ToString(), Is.EqualTo(enumName));
+			Assert.Multiple(() =>
+			{
+				Assert.That(theEnum.ToString(), Is.EqualTo(enumName));
+				Assert.That($"{theEnum}", Is.EqualTo(enumName));
+			});
+			
 		}
 	}
 }
