@@ -1,4 +1,6 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
+using System.Xml;
 using NUnit.Framework;
 
 namespace Examples.Examples.Xml
@@ -24,6 +26,20 @@ namespace Examples.Examples.Xml
 			);
 
 			Assert.That(xml, Does.Not.Contain("\x00"));
+		}
+
+		[Test]
+		public void AddCDataToXmlElement()
+		{
+			var xdoc = new XmlDocument();
+			var xmlElement = xdoc.CreateElement("test");
+			// Create an XmlCDataSection from your document
+			var cdata = xdoc.CreateCDataSection("some string that needs to be CData");
+
+			// Append the cdata section to your node
+			xmlElement.AppendChild(cdata);
+
+			Assert.That(xmlElement.InnerXml, Does.Contain("![CDATA["));
 		}
 	}
 }
