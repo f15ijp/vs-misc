@@ -77,6 +77,7 @@
     <Compile Include="Examples\System\DateAndTimeExamples.vb" />
     <Compile Include="Examples\System\ExecptionExamples.vb" />
     <Compile Include="Examples\System\IntegerExamples.vb" />
+    <Compile Include="Examples\System\PropertyExamples.vb" />
     <Compile Include="Tests\ExceptionTest.vb" />
     <Compile Include="Examples\System\ConvertExamples.vb" />
     <Compile Include="Examples\System\StringExamples.vb" />

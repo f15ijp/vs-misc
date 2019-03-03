@@ -10,11 +10,6 @@ namespace Examples.Examples.System {
 		/// </summary>
 		public string AutoProperty { get; set; }
 		
-		/// <summary>
-		/// To have different access modifiers, simply declare them on get or set
-		/// </summary>
-		public string AutoPropertyWithRestricedAccessModifier { get; protected set; }
-
 		private string _property;
 		/// <summary>
 		/// Property with implementation in get or set
@@ -27,6 +22,28 @@ namespace Examples.Examples.System {
 				return _property;
 			}
 			set {
+				_property = value;
+			}
+		}
+
+
+		/// <summary>
+		/// To have different access modifiers, simply declare them on get or set
+		/// </summary>
+		public string AutoPropertyWithRestricedAccessModifier { get; protected set; }
+
+		/// <summary>
+		/// Property with implementation in get or set and different access modifiers
+		/// </summary>
+		public string PropertyWithRestricedAccessModifier {
+			get
+			{
+				if (string.IsNullOrEmpty(_property)) {
+					_property = Guid.NewGuid().ToString();
+				}
+				return _property;
+			}
+			protected set {
 				_property = value;
 			}
 		}
