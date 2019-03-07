@@ -18,7 +18,7 @@ namespace Examples.Examples.System.Net.Mail {
 		}
 
 		public bool ValidateEmail(string email) {
-			bool retVal = false;
+			var retVal = false;
 			try {
 				if (!string.IsNullOrEmpty(email))
 				{

@@ -5,12 +5,12 @@ using NUnit.Framework;
 
 namespace Examples.Examples.System.Collections.Specialized {
 	[TestFixture()]
-	class OrderedDictionayExamples {
+	public class OrderedDictionayExamples {
 
 		[TestCase(10)]
 		public void OrderedDictionary_with_interger_as_key(int numberOfEntries) {
 			var orderedDictionary = new OrderedDictionary();
-			for (int counter = 0; counter < numberOfEntries; counter++) {
+			for (var counter = 0; counter < numberOfEntries; counter++) {
 				orderedDictionary.Add(counter, $"key {counter.ToString()}");
 			}
 
