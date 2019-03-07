@@ -46,6 +46,15 @@ Namespace Tests
 			Assert.That(Sub() FunctionThatThrowsWithArgument(True), Throws.ArgumentException)
 		End Sub
 
+		<Test>
+		Public Sub Exception_Assert_that_checks_exception_typ_and_message()
+			Dim myExceptionMessage As String = "Something we can look for"
+			Assert.Throws(
+								[Is].TypeOf(Of ArgumentException)().And.Message.Contains("look for"),
+								Sub() SubThatThrows(myExceptionMessage)
+							)
+		End Sub
+
 #Region "Don't Throw"
 		Public Sub Assert_That_Dont_Throw()
 			Assert.That(Sub() FunctionThatThrowsWithArgument(False), Throws.Nothing)
@@ -61,8 +70,8 @@ Namespace Tests
 
 #Region "Infrasctructure for test"
 
-		Private Shared Sub SubThatThrows()
-			Throw New ArgumentException("Throws for test")
+		Private Shared Sub SubThatThrows(Optional byval message As String = "Throws for test")
+			Throw New ArgumentException(message)
 		End Sub
 
 		Private Shared Sub SubThatThrowsWithArgument(ByVal shouldThrow As Boolean)
