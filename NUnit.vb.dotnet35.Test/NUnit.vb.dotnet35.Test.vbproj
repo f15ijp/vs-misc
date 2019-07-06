@@ -61,7 +61,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-   
+    <Compile Include="Examples\ConvertToExamples.vb" />
     <Compile Include="Examples\IsNumericExamples.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
