@@ -12,6 +12,8 @@ namespace Nunit.Test.TestExamples
 			var theList = new List<int>();
 
 			Assert.That(theList, Is.TypeOf<List<int>>());
+
+			TestContext.WriteLine($"{theList.GetType()}");
 		}
 	}
 }
