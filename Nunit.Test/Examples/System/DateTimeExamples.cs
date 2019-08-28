@@ -23,8 +23,16 @@ namespace Examples.Examples.System
 			{
 				TestContext.WriteLine("Using culture {0}: {1}", culture.Name, dateValue.ToString(culture));
 			}
+		}
 
+		[Test]
+		public void RemoveTimePartFromDateTime()
+		{
+			var currentDateAndTime = DateTime.Now;
+			var currentDateWithoutHoursAndMinutes = currentDateAndTime.Date;
 
+			TestContext.WriteLine("currentDateAndTime '{0}' - currentDateWithoutHoursAndMinutes '{1}' ", currentDateAndTime, currentDateWithoutHoursAndMinutes);
+			Assert.That(currentDateAndTime, Is.Not.EqualTo(currentDateWithoutHoursAndMinutes));
 		}
 	}
 }
