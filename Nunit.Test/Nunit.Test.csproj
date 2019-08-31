@@ -85,6 +85,7 @@
     <Compile Include="Examples\TryParse\DoubleTryParse.cs" />
     <Compile Include="Examples\TryParse\SingleTryParse.cs" />
     <Compile Include="TestExamples\ExceptionTest.cs" />
+    <Compile Include="TestExamples\ListTest.cs" />
     <Compile Include="TestExamples\TypeOfTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
