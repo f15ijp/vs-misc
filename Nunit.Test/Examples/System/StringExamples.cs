@@ -31,8 +31,12 @@ namespace Examples.Examples.System {
 				Assert.That(stringWithSpace.TrimEnd(), Does.Not.EndWith(" "));
 				Assert.That(stringWithSpace.TrimStart(), Does.Not.StartWith(" "));
 			});
-			
 
+		}
+
+		[Test]
+		public void SplitOnWholeWord() {
+			Assert.That("the slow fox".Split(new[] {"slow"}, StringSplitOptions.None).Length, Is.EqualTo(2));
 		}
 
 	}
