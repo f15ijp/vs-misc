@@ -74,6 +74,7 @@
     <Compile Include="Examples\System\Text\EncodingConvertExamples.cs" />
     <Compile Include="Examples\System\Text\RegularExpressions\RegexExamples.cs" />
     <Compile Include="Examples\Xml\XmlExamples.cs" />
+    <Compile Include="Misc\Enums\CodePagecs.cs" />
     <Compile Include="TestExamples\FizzbuzzTest.cs" />
     <Compile Include="Examples\System\DateTimeExamples.cs" />
     <Compile Include="Examples\System\EnumExamples.cs" />
