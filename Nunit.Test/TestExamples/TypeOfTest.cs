@@ -1,13 +1,13 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using NUnit.Framework;
 
-namespace Nunit.Test.TestExamples
+namespace Examples.TestExamples
 {
 	[TestFixture]
 	public class TypeOfTest
 	{
 		[Test]
-		public void TypeOf_ListOfInt()
+		public void Is_TypeOf_ListOfInt()
 		{
 			var theList = new List<int>();
 
