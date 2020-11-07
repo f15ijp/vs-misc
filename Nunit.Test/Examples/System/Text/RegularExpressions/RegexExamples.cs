@@ -53,5 +53,22 @@ namespace Examples.Examples.System.Text.RegularExpressions {
 			});
 		}
 
+		/// <summary>
+		/// Example from MSDN
+		/// https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex.matches
+		/// </summary>
+		[Test]
+		public static void Matches() {
+			var sentence = "Who writes these notes?";
+
+			foreach (Match match in new Regex(@"\b\w+es\b").Matches(sentence))
+				TestContext.WriteLine("Found '{0}' at position {1}",
+					match.Value, match.Index);
+
+			// The example displays the following output:
+			//       Found 'writes' at position 4
+			//       Found 'notes' at position 17
+		}
+
 	}
 }
