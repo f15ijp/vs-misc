@@ -72,6 +72,7 @@
     <Compile Include="Examples\System\IO\FileInfoExamples.cs" />
     <Compile Include="Examples\System\IO\FileStreamExamples.cs" />
     <Compile Include="Examples\System\IO\StreamWriterExamples.cs" />
+    <Compile Include="Examples\System\LinQ\ListExamples.cs" />
     <Compile Include="Examples\System\PropertyExamples.cs" />
     <Compile Include="Examples\System\Net\Mail\MailExamples.cs" />
     <Compile Include="Examples\System\Text\EncodingConvertExamples.cs" />
