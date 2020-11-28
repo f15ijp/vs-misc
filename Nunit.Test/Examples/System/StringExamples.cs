@@ -35,8 +35,32 @@ namespace Examples.Examples.System {
 		}
 
 		[Test]
+		public void TrimStringThatIsNull() {
+			string stringWithNull = null;
+			// ReSharper disable once PossibleNullReferenceException
+			// ReSharper disable once ReturnValueOfPureMethodIsNotUsed
+			Assert.Throws<NullReferenceException>(() => { stringWithNull.Trim(); });
+		}
+
+		[Test]
+		public void TestStringIsNullOrEmpty()
+		{
+			string stringWithNull = null;
+			// ReSharper disable ExpressionIsAlwaysNull
+			Assert.That(string.IsNullOrEmpty(stringWithNull + stringWithNull), Is.True);
+			// ReSharper restore ExpressionIsAlwaysNull
+		}
+
+		[Test]
 		public void SplitOnWholeWord() {
 			Assert.That("the slow fox".Split(new[] {"slow"}, StringSplitOptions.None).Length, Is.EqualTo(2));
+		}
+
+		[Test]
+		public void SubstringOnNull() {
+			string testString = null;
+			Assert.Throws<NullReferenceException>(() => { testString.Substring(0, 1);  });
+			
 		}
 
 	}
