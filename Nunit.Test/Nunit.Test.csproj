@@ -66,6 +66,7 @@
     <Compile Include="Examples\System\Collections\Dictionary_vs_OrderedDictionay.cs" />
     <Compile Include="Examples\System\Collections\Specialized\OrderedDictionayExamples.cs" />
     <Compile Include="Examples\System\ExceptionExamples.cs" />
+    <Compile Include="Examples\System\IntExamples.cs" />
     <Compile Include="Examples\System\IO\DirectoryInfoAndFileInfoExamples.cs" />
     <Compile Include="Examples\System\IO\FileInfoExamples.cs" />
     <Compile Include="Examples\System\IO\FileStreamExamples.cs" />
