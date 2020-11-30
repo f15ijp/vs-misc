@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Examples\Inheritance\GetType_or_TypeOf.cs" />
     <Compile Include="Examples\Inheritance\VirtualFunctionWithMultipleOverloads.cs" />
+    <Compile Include="Examples\NumberExamples.cs" />
     <Compile Include="Examples\System\BoolExamples.cs" />
     <Compile Include="Examples\System\Collections\ArrayExamples.cs" />
     <Compile Include="Examples\System\Collections\Generics\DictionaryExamples.cs" />
