@@ -1,4 +1,4 @@
-Option Explicit On
+﻿Option Explicit On
 
 Imports NUnit.Framework
 
@@ -20,6 +20,12 @@ Namespace System
 		End Sub
 
 		<Test>
+		Public Sub StringInterpolationWithNothing()
+			TestContext.WriteLine($"Adding nothing should not give an exception? '{Nothing}'")
+			Dim newString As String
+			TestContext.WriteLine($"Adding new string should not give an exception? '{newString}'")
+		End Sub
+
 		<Test>
 		Public Sub SubStringOnNothing()
 			Dim testString As String = Nothing
