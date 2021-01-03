@@ -60,7 +60,7 @@ namespace Examples.Examples.System.Text.RegularExpressions {
 		[TestCase("text", false)]
 		[TestCase("", false)]
 		public void ConstainsCrLf(string haystack, bool matches) {
-			var lastIndex = Regex.Match(haystack, @"\r\n?\n", RegexOptions.RightToLeft);
+			var lastIndex = Regex.Match(haystack, @"\r\n?|\n", RegexOptions.RightToLeft);
 			Assert.Multiple(() => {
 				Assert.That((lastIndex.Index > 0), Is.EqualTo(matches), message:lastIndex.Index.ToString());
 			});
