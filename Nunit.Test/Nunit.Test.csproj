@@ -57,6 +57,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Examples\ByRefOrByVal.cs" />
     <Compile Include="Examples\Inheritance\GetType_or_TypeOf.cs" />
     <Compile Include="Examples\Inheritance\VirtualFunctionWithMultipleOverloads.cs" />
     <Compile Include="Examples\NumberExamples.cs" />
