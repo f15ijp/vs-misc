@@ -82,7 +82,7 @@
     <Compile Include="Examples\System\UriExamples.cs" />
     <Compile Include="Examples\System\Web\HtmlEncodeExamples.cs" />
     <Compile Include="Examples\Xml\XmlExamples.cs" />
-    <Compile Include="Misc\Enums\CodePagecs.cs" />
+    <Compile Include="Misc\Enums\CodePage.cs" />
     <Compile Include="Misc\Enums\SslTlsAlerts.cs" />
     <Compile Include="TestExamples\CultureTest.cs" />
     <Compile Include="TestExamples\FizzbuzzTest.cs" />
