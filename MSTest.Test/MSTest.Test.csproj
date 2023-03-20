@@ -55,6 +55,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Examples\PrivateTest.cs" />
+    <Compile Include="Examples\System\StringExamples.cs" />
     <Compile Include="FizzbuzzTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

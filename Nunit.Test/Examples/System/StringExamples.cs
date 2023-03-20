@@ -63,5 +63,37 @@ namespace Examples.Examples.System {
 			
 		}
 
-	}
+        /// <summary>
+        /// Show a example of how using different StringComparison might give different results
+        /// Please see the output for the results
+        /// </summary>
+        /// <param name="stringComparison">All possible values of StringComparison</param>
+        [SetCulture("en-Us")]
+        [Test]
+        public void ExampleOfDifferentResultsWithDifferentStringComparison([Values] StringComparison stringComparison)
+        {
+            string str1 = "Aa";
+            string str2 = "A" + new string('\u0000', 3) + "a";
+
+            Console.WriteLine($"Comparing '{str1}' ({ShowBytes(str1)}) and '{str2}' ({ShowBytes(str2)}):");
+            Console.WriteLine("   With String.Compare:");
+            Console.WriteLine($"      {stringComparison} : {string.Compare(str1, str2, stringComparison)}");
+            Console.WriteLine("   With String.Equals:");
+            Console.WriteLine($"      {stringComparison} : {string.Equals(str1, str2, stringComparison)}");
+
+            string ShowBytes(string value)
+            {
+                string hexString = string.Empty;
+                for (int index = 0; index < value.Length; index++)
+                {
+                    string result = Convert.ToInt32(value[index]).ToString("X4");
+                    result = string.Concat(" ", result.Substring(0, 2), " ", result.Substring(2, 2));
+                    hexString += result;
+                }
+                return hexString.Trim();
+            }
+
+        }
+
+    }
 }
